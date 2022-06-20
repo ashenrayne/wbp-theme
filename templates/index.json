@@ -1,16 +1,25 @@
 {
   "sections": {
     "component-banner": {
-      "type": "component-banner"
+      "type": "component-banner",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "component-quote": {
-      "type": "component-quote"
+      "type": "component-quote",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "video": {
       "type": "video",
       "settings": {
         "heading": "",
         "heading_size": "h1",
+        "cover_image": "shopify:\/\/shop_images\/video-bg.jpg",
         "video_url": "https:\/\/www.youtube.com\/watch?v=5yo-w7BpLW4",
         "description": "",
         "full_width": false,
@@ -20,10 +29,18 @@
       }
     },
     "component-quote-second": {
-      "type": "component-quote-second"
+      "type": "component-quote-second",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "component-about": {
-      "type": "component-about"
+      "type": "component-about",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
