@@ -1,0 +1,153 @@
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+.component-about--first {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.component-about--title {
+  font-size: 50px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #ec2625;
+}
+
+.component-about--subtitle {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #000;
+}
+
+.component-about--it {
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 1.1;
+  text-indent: 50px;
+  color: #000;
+  padding-top: 30px;
+}
+
+.component-about--it img {
+  float: left;
+  width: 160px;
+  margin-right: 30px;
+}
+
+.component-about--it p:first-of-type {
+  margin-top: 0;
+}
+
+.component-about--it p:last-of-type {
+  margin-bottom: 0;
+}
+
+.component-about--footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.component-about--footer img {
+  margin-top: 40px;
+}
+
+.component-about--button {
+  display: inline-block;
+  background: #d9232a;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 1;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .component-about--container {
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+{%- endstyle -%}
+
+<div class="component-about gradient isolate">
+  <div class="component-about--container page-width section-{{ section.id }}-padding">
+    <div class="component-about--first">
+      <div class="component-about--title">
+        About the Author
+      </div>
+      <div class="component-about--subtitle">
+        Dr. Scott Jensen
+      </div>
+      <div class="component-about--it">
+        {{ 'component-about--scott.jpg' | asset_url | img_tag: 'Dr. Scott Jensen' }}
+        <p>Four decades ago, a young doctor — equipped with book learning and the confidence of youth — departed the nurturing cocoon of his training program ready to reach out and heal the sick and fix the wounded. He was surprised to discover that the compensation for services provided did not hold a candle to the appreciation and respect generated between patient and doctor when advocacy and trust dominated their relationship. He came to understand that meaningful connections with patients sustained his commitment to healing and aroused his desire to be the best doctor he could be.</p>
+        <p>That young man was me, Dr. Scott Jensen. I was thankful for that discovery then, and forty years later I am still in awe of the gifts derived from serving patients through patient trust and physician advocacy.</p>
+        <p>Regrettably, something changed as we moved into the medical technocracy of the 21st century.</p>
+        <p>A dehumanization of the way doctors serve patients poisoned the house of medicine as the importance of relationship between doctor and patient was marginalized.</p>
+        <p>For centuries the cornerstone of healing has involved relationship, context, compassion, skill, and trust. The 21st-century house of medicine (with assistance from other involved stakeholders) has instead embraced a new paradigm of evidence-based medicine, algorithmic order sets, electronic health records, rigid patient requirements, and physician productivity metrics.</p>
+        <p>Yes, something changed.</p>
+        <p>It’s time to declare that we have all been played. Unwittingly perhaps, but nevertheless played, played to the hilt. And just as importantly it is time to ask the million-dollar question: Who has played us? Who caused patients to feel like pawns, or even worse, roadkill? Who has driven healers to quit? Who has stripped citizens of their health freedom? Who has too casually discarded the value of “informed consent”?</p>
+        <p>I will tell you who the players are — who played you, and who played me.</p>
+        <p>I have come to recognize that medically related agendas not centered on patient wellbeing and physician guidance can be a poison to patients and doctors alike. And this is exactly the root of the problem. Schemes emanating from Big Pharma, Big Tech, and Big Government too often do not serve healers or the sick. This triad represents a dangerous and insidious force that works against transparency and health freedom. It is the triad of tyranny. Its appetite is for power, dollars, and control.</p>
+        <p>In “We’ve Been Played...Exposing the Triad of Tyranny” I will tell you of a new lens through which to see the forces that would do us harm.</p>
+        <p>Stories open the mind to dimensions not easily explored, and this is why I have chosen to use real-life interactions in combination with questions and topics for reflection. This book describes patient encounters with a resolute commitment to recreating authentic content. Copious notes helped me in this task, but the sheer amount of time and information involved in a patient meeting prevented a strict adherence to literal accuracy. While attempting to stay as close as possible to actual conversations, some editing was in order to avoid repetition, preserve relevance, and protect patient privacy. In situations of remarkable emotional poignancy, I amalgamated encounters to ensure preservation of anonymity for patients, families, and caregivers.</p>
+        <p>I have long believed challenges cannot be overcome without courage. This book was born of a passion to speak of the forces which fractured patient-doctor relationships, broke the house of medicine, ignored sacred oaths, and tried to cancel skeptical voices. I endeavored to hone in on the “who, what, why, when, and where” of the problems raised in these chapters, and it is alarming that virtually every concern I dissected had its birth within the realm of activity of the triad of tyranny — Big Pharma, Big Tech, and Big Government.</p>
+      </div>
+      <div class="component-about--footer">
+
+        <a class="component-about--button" href="#buy">
+          Buy Now
+        </a>
+        {{ 'component-about--book.jpg' | asset_url | img_tag: 'Buy The Book' }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Component: Quote",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
