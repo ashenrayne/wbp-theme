@@ -1,0 +1,126 @@
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+.component-banner--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.component-banner--first {
+
+}
+
+.component-banner--second {
+  text-align: center;
+}
+
+.component-banner--second img {
+  width: 100%;
+}
+
+.component-banner--text {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #000;
+}
+
+.component-banner--text em {
+  color: #d9232a;
+  text-transform: uppercase;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.component-banner--button {
+  display: inline-block;
+  background: #d9232a;
+  margin-top: 40px;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 1;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .component-banner--container {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .component-banner--second {
+    max-width: 360px;
+    padding-top: 20px;
+  }
+
+  .component-banner--text {
+    font-size: 40px;
+  }
+}
+
+{%- endstyle -%}
+
+<div class="gradient isolate">
+  <div class="component-banner--container page-width section-{{ section.id }}-padding">
+    <div class="component-banner--first">
+      <div class="component-banner--book">
+        {{ 'component-banner--book.jpg' | asset_url | img_tag: "We've Been Played... Exposing the TRIAD of TYRANNY" }}
+      </div>
+    </div>
+    <div class="component-banner--second">
+      <div class="component-banner--circles">
+        {{ 'component-banner--circles.jpg' | asset_url | img_tag: "Money is at the heart of it all..." }}
+      </div>
+      <div class="component-banner--text">
+        How <em>Big Pharma</em>, <em>Big Tech</em>, and <em>Big Government</em> are destroying the American Heathcare System
+      </div>
+      <a class="component-banner--button" href="#buy">
+        Buy Now
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Component: Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

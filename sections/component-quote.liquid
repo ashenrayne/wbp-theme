@@ -1,0 +1,112 @@
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+.component-quote {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.component-quote--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.component-quote--first {
+
+}
+
+.component-quote--first img {
+  width: 100%;
+}
+
+.component-quote--it {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.component-quote--who {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding-top: 10px;
+}
+
+.component-quote--who span {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .component-quote--container {
+    flex-direction: row;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .component-quote--first {
+    flex: 1 1 400px;
+    margin-right: 30px;
+  }
+
+  .component-quote--second {
+    flex: 1 1 auto;
+  }
+}
+
+{%- endstyle -%}
+
+<div class="component-quote gradient isolate">
+  <div class="component-quote--container page-width section-{{ section.id }}-padding">
+    <div class="component-quote--first">
+      {{ 'component-quote--image.jpg' | asset_url | img_tag: "Peter A. McCullough" }}
+    </div>
+    <div class="component-quote--second">
+      <div class="component-quote--it">
+        "Site back and get ready for a fast-paced, incisive, and truly authoritative accounting of critical factors contributing to the current healthcare crisis&mdash;Jensen delivers with masterful writing and a clarity of presentation, and a conviction grounded in faith."
+      </div>
+      <div class="component-quote--who">
+        - Peter A. McCullough<span>, MD, MPH</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Component: Quote",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
