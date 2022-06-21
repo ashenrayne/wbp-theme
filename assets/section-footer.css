@@ -42,7 +42,6 @@
 
 .footer__content-bottom {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
-  padding-top: 3rem;
 }
 
 .footer__content-bottom:only-child {
@@ -359,7 +358,6 @@ noscript .localization-selector.link {
   animation: animateLocalization var(--duration-default) ease;
 }
 
-
 @media screen and (min-width: 750px) {
   .footer__payment {
     margin-top: 1.5rem;
@@ -368,13 +366,6 @@ noscript .localization-selector.link {
 
 .footer__copyright {
   text-align: center;
-  margin-top: 1.5rem;
-}
-
-@media screen and (min-width: 750px) {
-  .footer__copyright {
-    text-align: right;
-  }
 }
 
 @keyframes appear-down {
@@ -466,9 +457,23 @@ noscript .localization-selector.link {
   max-width: 20rem;
 }
 
+.copyright__content {
+  display: block;
+}
+
 .copyright__content a {
   color: currentColor;
   text-decoration: none;
+}
+
+.copyright__contact,
+.copyright__contact a {
+  color: #f8c625;
+  font-size: 13px;
+}
+
+.copyright__contact a:hover {
+  color: #fff;
 }
 
 @keyframes animateLocalization {
