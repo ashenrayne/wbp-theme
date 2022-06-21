@@ -39,6 +39,7 @@
     "component-about": {
       "type": "component-about",
       "settings": {
+        "product": "weve-been-played",
         "padding_top": 36,
         "padding_bottom": 36
       }
