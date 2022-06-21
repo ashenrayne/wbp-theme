@@ -114,7 +114,7 @@
       </div>
       <div class="component-about--footer">
 
-        <a class="component-about--button" href="#buy">
+        <a class="component-about--button" href="{{ all_products[section.settings.product].url }}">
           Buy Now
         </a>
         {{ 'component-about--book.jpg' | asset_url | img_tag: 'Buy The Book' }}
@@ -129,6 +129,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.featured-product.settings.product.label"
+    },
     {
       "type": "range",
       "id": "padding_top",
