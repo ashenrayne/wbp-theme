@@ -88,7 +88,7 @@
       <div class="component-banner--text">
         How <em>Big Pharma</em>, <em>Big Tech</em>, and <em>Big Government</em> are destroying the American Heathcare System
       </div>
-      <a class="component-banner--button" href="#buy">
+      <a class="component-banner--button" href="{{ all_products[section.settings.product].url }}">
         Buy Now
       </a>
     </div>
@@ -101,6 +101,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.featured-product.settings.product.label"
+    },
     {
       "type": "range",
       "id": "padding_top",
