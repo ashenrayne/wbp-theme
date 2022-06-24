@@ -467,7 +467,6 @@
       this.headerBounds = {};
       this.currentScrollTop = 0;
       this.preventReveal = false;
-      this.predictiveSearch = this.querySelector('predictive-search');
 
       this.onScrollHandler = this.onScroll.bind(this);
       this.hideHeaderOnScrollUp = () => this.preventReveal = true;
@@ -495,8 +494,6 @@
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
-
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
@@ -522,7 +519,6 @@
     hide() {
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
       this.closeMenuDisclosure();
-      this.closeSearchModal();
     }
 
     reveal() {
@@ -537,11 +533,6 @@
     closeMenuDisclosure() {
       this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
       this.disclosures.forEach(disclosure => disclosure.close());
-    }
-
-    closeSearchModal() {
-      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
-      this.searchModal.close(false);
     }
   }
 
@@ -570,23 +561,6 @@
     "url": {{ request.origin | append: page.url | json }}
   }
 </script>
-
-{%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": {{ shop.name | json }},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {{ potential_action_target | json }},
-        "query-input": "required name=search_term_string"
-      },
-      "url": {{ request.origin | append: page.url | json }}
-    }
-  </script>
-{%- endif -%}
 
 {% schema %}
 {
