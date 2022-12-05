@@ -124,10 +124,7 @@
           </span>
         </button>
       {%- else -%}
-        <div
-          id="Deferred-Poster-Modal-{{ section.settings.video_url.id }}"
-          class="video-section__poster media deferred-media__poster media--landscape"
-        >
+        <div>
           {%- if section.settings.cover_image != blank -%}
             <img
               srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | image_url: width: 375 }} 375w,{%- endif -%}
