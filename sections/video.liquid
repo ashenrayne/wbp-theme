@@ -124,7 +124,9 @@
           </span>
         </button>
       {%- else -%}
-        <div>
+        <div
+          class="video-section__poster media--landscape"
+        >
           {%- if section.settings.cover_image != blank -%}
             <img
               srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | image_url: width: 375 }} 375w,{%- endif -%}
