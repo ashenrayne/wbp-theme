@@ -25,13 +25,15 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 // Smooth scroll on anchor links.
 document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
       var element = document.querySelector(this.getAttribute('href').replace('/', ''));
-      if (element.length) {
-        e.preventDefault();
+      if (element) {
         element.scrollIntoView({
             behavior: 'smooth'
         });
       }
+    }
   });
 });
 
