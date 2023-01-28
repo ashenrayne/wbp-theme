@@ -1,0 +1,139 @@
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+.component-relationship-matters--container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  max-height: 230px;
+  background: #171917;
+}
+
+.component-relationship-matters--first {
+  position: relative;
+  z-index: 10;
+}
+
+.component-relationship-matters--first img {
+  width: 100%;
+  height: auto;
+}
+
+.component-relationship-matters--second {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 17px;
+  font-weight: 100;
+  line-height: 1.1;
+  text-indent: 50px;
+  color: #000;
+  padding-top: 30px;
+}
+
+.component-relationship-matters--second .byline {
+  text-indent: 0;
+  padding-left: 50px;
+  font-size: 15px;
+}
+
+.component-relationship-matters--button {
+  display: inline-block;
+  background: #d9232a;
+  margin-top: 40px;
+  color: #fff;
+  padding: 18px 20px 10px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 1;
+  text-indent: 0;
+}
+
+.component-relationship-matters--buynow {
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .component-relationship-matters--container {
+    flex-direction: row;
+    /* align-items: start; */
+  }
+
+  .component-relationship-matters--second {
+    font-size: 24px;
+  }
+
+  .component-relationship-matters--second .byline {
+    font-size: 20px;
+  }
+}
+
+{%- endstyle -%}
+
+<div class="gradient isolate">
+  <div class="component-relationship-matters--container page-width section-{{ section.id }}-padding">
+    <div class="component-relationship-matters--first">
+      {{ 'component-relationship-matters.png' | asset_url | img_tag: "Relationship Matters" }}
+    </div>
+    <div class="component-relationship-matters--second">
+      <p>The foundation of medical care is the time honored connection between patient and doctor and it relies on trust and advocacy. It is fracturing.</p>
+      <p>This collection of patient stories repeatedly directs attention to a landmark question: How can patients and doctors together restore balance, advocacy, and trust to the matter of giving and receiving medical care? The lessons within can galvanize both patients and doctors to commit to rebuilding the vital relationships they once enjoyed bonds that can make the difference between good or bad care, relief or suffering, even life or death.</p>
+      <p>&nbsp;</p>
+      <p>From a Reviewer: <strong>Relationship Matters</strong></p>
+      <p><em>"Dr. Jensen has brought to light the fracture that has torn apart the sacred relationship between patient and physician. A longtime friend recently told me of her request during a visit with her primary care physician when he fixated on the computer screen: "Sir, please turn around and talk to me so I don't have to speak to the back of your head.!"</em></p>
+      <div class="byline"><p><strong>John P. Creasman, M.D.</strong> Chair Emeritus,<br>
+      Dept of Ophthalmology, Mayo Clinic, Arizona</p></div>
+      <div class="component-relationship-matters--buynow">
+        <a class="component-relationship-matters--button" href="{{ all_products[section.settings.product].url }}">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Component: Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.featured-product.settings.product.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
